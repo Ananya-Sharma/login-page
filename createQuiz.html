@@ -1,0 +1,79 @@
+
+
+ <html>
+    <head>
+    <title>Create Quiz</title>
+    
+    <script>
+      function validateForm() {
+        var x = document.forms["myForm"]["startDate"].value;
+        var y = document.forms["myForm"]["endDate"].value;
+        var x2 = document.forms["myForm"]["startT"].value;
+        var y2 = document.forms["myForm"]["endT"].value;
+        if (x>y) {
+          alert("StartDate greater than EndDate");
+          return false;
+        }
+        if(x2>=y2&&x==y)
+        {
+          alert("StartTime less than EndTime");
+          return false;
+        }
+      
+      }
+      </script>
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <header>  
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">QUIZ QUESTIONS</a>
+            </div>
+            <ul class="nav navbar-nav">
+             
+             
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/admin/viewQuizes"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+              <li><a href="/admin/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+        <body>
+        <div class="loginbox">
+              
+                 <form name="myForm" action="/admin/createQuiz" onsubmit="return validateForm()" method="POST">
+                    <div class="quizhead"><b><span>DEPARTMENT NAME</span></b></div>
+                    <br><br><br><br>
+                   
+                    <input type="text" placeholder="Enter Quiz Name" name="quizName" required="">
+                    <input type="text" placeholder="Enter number of questions to be displayed in the Quiz" name="count" required="">
+                    <br><br>
+                    <div class="right">
+                    <label for="Start date"><b>Start date: </b></label> 
+                    <input type="date" placeholder ="Enter StartDate" name="startDate" required=""><br>
+                    <label for="End date"><b>End date: </b></label>
+                    <input type="date" placeholder="Enter EndDate" name="endDate" required=""></div>
+                    <div class="left">
+                    <label for="Start time"><b>Start time: </b></label>
+                    <input type="time" placeholder="Enter Starttime" name="startT"><br>
+                    <label for="End time"><b>End time: </b></label>
+                    <input type="time" placeholder="Enter Endtime" name="endT"></div>
+                    <br>
+                    
+                    <button type="submit" class="button1" style=" margin-top: 25px; float: left; width:30%";>Submit</button>
+                   
+                </form>
+        </div>
+    
+        
+    </body>
+    </head>
+    </html>
+    
